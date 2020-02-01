@@ -3,7 +3,6 @@
 *.py[cod]
 *$py.class
 
-__init__.py
 __pycache__/
 migrations/
 
