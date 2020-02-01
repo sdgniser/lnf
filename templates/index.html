@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ kind }}
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ kind }} Items</h2>
+
+{% if items %}
+
+<dl>
+
+  {% for item in items %}
+    <dt>{{ item }}</dt>
+    <dd>
+      {{ item.desc }}
+      <a href="{% url 'main:item' item.id %}">Details</a>
+    </dd>
+  {% endfor %}
+
+</dl>
+
+{% else %}
+<p>No unclaimed items here right now.</p>
+
+{% endif %}
+
+{% endblock %}

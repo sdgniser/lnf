@@ -1,0 +1,56 @@
+/* Makes navbar links equally spaced */
+nav ul {
+  display: flex;
+}
+
+nav ul li,
+ul.subnav li {
+  list-style: none;
+  flex: 1;
+  text-align: center;
+  margin: 0 auto;
+}
+
+ul.subnav {
+  padding: 0;
+  margin: .8rem auto;
+  display: flex;
+}
+
+ul.prematter {
+  margin: .8rem auto;
+}
+
+
+/* Makes the rankings table t h i c c */
+table#rankings {
+  display: table;
+  width: 100%;
+}
+
+/* Styling for comma-separated lists */
+ul.comma,
+ul.comma > li {
+  display: inline;
+}
+
+ul.comma {
+  list-style: none;
+  padding: 0;
+}
+
+ul.comma > li:not(:last-child)::after {
+  content: ', ';
+}
+
+ul.errorlist {
+  background: #eae885;
+}
+
+code {
+  background: #ddd;
+  padding: 0.2rem;
+  font-size: 0.9rem;
+  border-radius: 0.2rem;
+  display: inline-block;
+}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ item.name }}
+{% endblock %}
+
+{% block content %}
+
+<h3>{{ item.name }}</h3>
+
+<br><br>
+
+<img src={{ item.image.url }}>
+
+<br>
+
+<dl>
+  <dt>Description</dt>
+  <dd>{{ item.desc }}</dd>
+
+  <dt>{{ item.kind }} By</dt>
+  <dd>{{ item.submitter }}</dd>
+  
+  <dt>Contact</dt>
+  <dd>{{ item.email }}</dd>
+
+</dl>
+
+{% endblock %}

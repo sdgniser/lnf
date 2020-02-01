@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search Results
+{% endblock %}
+
+{% block content %}
+
+<h3>Search results for "{{ search_string }}"</h3>
+
+{% if items %}
+
+<dl>
+
+  {% for item in items %}
+    <dt>{{ item }}</dt>
+    <dd>
+      {{ item.desc }}
+      <a href="{% url 'main:item' item.id %}">Details</a>
+    </dd>
+  {% endfor %}
+
+</dl>
+
+{% else %}
+<p>Nothing found.</p>
+
+{% endif %}
+
+{% endblock %}
