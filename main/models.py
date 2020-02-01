@@ -38,4 +38,4 @@ class Item(models.Model):
         return self.__str__()
 
     def get_absolute_url(self):
-        return reverse('author-detail', kwargs={'pk': self.pk})
+        return reverse('main:item', kwargs={'pk': self.pk})
