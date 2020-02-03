@@ -2,25 +2,13 @@ from django.db import models
 from django.utils.timezone import now
 from django.urls import reverse
 
-# Create your models here.
-
-class Category(models.Model):
-    name = models.CharField(max_length = 200)
-
-    class Meta:
-        ordering = ['name']
-
-    def __str__(self):
-        return self.name
-
-
 class Item(models.Model):
     kind = models.CharField(max_length = 200, default = 'Lost',
             choices = [('Lost', 'Lost'), ('Found', 'Found')],
             verbose_name = 'Lost/Found')
     location = models.CharField(max_length = 200)
     date = models.DateField(default = now)
-    category = models.ForeignKey(Category, on_delete = models.CASCADE)
+    category = models.CharField(max_length = 200, verbose_name='Category')
     desc = models.TextField(verbose_name = 'Description of the Item')
     image = models.ImageField(upload_to='images', null = True)
     claimed = models.BooleanField(default = False)

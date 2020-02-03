@@ -27,9 +27,7 @@ class ItemDetail(DetailView):
     template_name = 'item.html'
 
 class SubmitView(CreateView):
-    model = Item
-    fields = ['kind', 'location', 'date', 'category',
-                'desc', 'image','submitter', 'email']
+    form_class = ItemForm
     template_name = 'submit.html'
 
 def search(request):
