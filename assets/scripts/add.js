@@ -1,4 +1,4 @@
-function main() {
+function main(e) {
 	let selectCategory = document.querySelector('#id_category');
 	selectCategory.onchange = function(e) {
 		if (selectCategory.value === "Other") {
