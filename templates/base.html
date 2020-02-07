@@ -42,7 +42,7 @@
 
       </nav>
 
-        <form action="/search/" method="post">{% csrf_token %}
+        <form action="/search/" method="GET">
           <input type="text" name="keyword" placeholder="Search the database">
         </form>
 
@@ -72,5 +72,8 @@
     </footer>
 
     <script src="{% static 'scripts/main.js' %}"></script>
+
+	{% block js %} {% endblock %}
+
   </body>
 </html>

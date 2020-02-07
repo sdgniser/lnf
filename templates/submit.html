@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Add Item
@@ -13,4 +14,8 @@ Add Item
   <input type="submit" value="Save">
 </form>
 
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'scripts/add.js' %}"></script>
 {% endblock %}

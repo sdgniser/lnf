@@ -27,14 +27,12 @@ class ItemDetail(DetailView):
     template_name = 'item.html'
 
 class SubmitView(CreateView):
-    model = Item
-    fields = ['kind', 'location', 'date', 'category', 
-                'desc', 'image','submitter', 'email']
+    form_class = ItemForm
     template_name = 'submit.html'
 
 def search(request):
-    if request.method == 'POST':
-        form = SearchForm(request.POST)
+    if request.method == 'GET':
+        form = SearchForm(request.GET)
         if form.is_valid():
             search_string = form.cleaned_data['keyword']
 
@@ -50,7 +48,7 @@ def search(request):
             items = Item.objects.annotate(rank=SearchRank(vector,
                 query)).order_by('-rank')
 
-            return render(request, 'search.html', 
+            return render(request, 'search.html',
                     {'search_string': search_string, 'items': items})
 
     return HttpResponseRedirect('/')
