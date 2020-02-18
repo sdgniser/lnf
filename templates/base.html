@@ -42,7 +42,7 @@
 
       </nav>
 
-        <form action="/search/" method="GET">
+        <form action="{% url 'main:search' %}" method="GET">
           <input type="text" name="keyword" placeholder="Search the database">
         </form>
 
