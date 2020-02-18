@@ -8,11 +8,14 @@
 
 <h3>{{ item.name }}</h3>
 
-<br><br>
-
-<img src={{ item.image.url }}>
-
 <br>
+
+{% if item.image %}
+  <br><img src={{ item.image.url }}><br>
+{% else %}
+  <p>[image not uploaded]</p>
+{% endif %}
+
 
 <dl>
   <dt>Description</dt>
