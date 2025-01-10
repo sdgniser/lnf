@@ -10,17 +10,72 @@
 
 {% if items %}
 
-<dl>
-
+<div class="row">
   {% for item in items %}
-    <dt>{{ item }}</dt>
-    <dd>
-      {{ item.desc }}
-      <a href="{% url 'main:item' item.id %}">Details</a>
-    </dd>
+  <div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body p-4 text-center"> <!-- Added p-4 class for padding -->
+        <h5 class="card-title">{{ item }}</h5>
+        <p class="card-text">{{ item.desc }}</p>
+        <a href="{% url 'main:item' item.id %}" class="btn btn-dark btn-block mt-3">View Details</a>
+      </div>
+    </div>
+  </div>
   {% endfor %}
+</div>
 
-</dl>
+<!-- Optional: Add a custom background for the container -->
+<style>
+  .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-body {
+    padding: 20px; /* Custom padding */
+  }
+
+  .card-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #343a40;
+  }
+
+  .card-text {
+    font-size: 1.1rem;
+    color: #6c757d;
+  }
+
+  .btn-dark {
+    background-color: #343a40;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    color: #fff !important;
+    text-transform: none; /* Removes uppercase */
+    text-decoration: none; /* Removes underline */
+  }
+
+  .btn-dark:hover {
+    background-color: #23272b;
+  }
+
+  body {
+    background: #f8f9fa;
+  }
+
+  .row {
+    margin-top: 30px;
+  }
+</style>
+
 
 {% else %}
 <p>No unclaimed items here right now.</p>
